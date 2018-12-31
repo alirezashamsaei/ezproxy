@@ -30,9 +30,6 @@ for i in range(0, 20):
     if is_open(results[i], '1080'):
         alive.append(results[i])
 
-
-print(alive)
-
 def gimmeprox():
     links = []
     for x in range(0,len(alive)):
