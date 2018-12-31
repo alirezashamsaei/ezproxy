@@ -19,7 +19,7 @@ def start(bot, update):
 def button(bot, update):
     query = update.callback_query
     if query.data == 'send_proxies':
-        bot.edit_message_text(text=ezprox.gimmeprox(),
+        bot.edit_message_text(text=ezproxy.gimmeprox(),
                               chat_id=query.message.chat_id,
                               message_id=query.message.message_id)
     elif query.data == 'donate':
