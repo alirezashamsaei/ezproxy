@@ -17,23 +17,31 @@ def is_open(ip, port):
 url = 'http://spys.one/en/socks-proxy-list/'
 regex = '\d{1,4}\.\d{1,4}\.\d{1,4}\.\d{1,4}'
 
-# Request URL
-response = req.get(url).text
 
-# Extract IP and port from source
-p = re.compile(regex)
-results = p.findall(response)
-
-
-alive = []
-for i in range(0, 20):
-    if is_open(results[i], '1080'):
-        alive.append(results[i])
 
 def gimmeprox():
+    # Request URL
+    response = req.get(url).text
+
+    # Extract IP and port from source
+    p = re.compile(regex)
+    results = p.findall(response)
+
+
+    alive = []
+    print ('please wait...')
+
+    for i in range(0, 20):
+        print ('.', end='')
+        if is_open(results[i], '1080'):
+
+            alive.append(results[i])
+    print(alive)
     links = []
     for x in range(0,len(alive)):
-        links.append('https://t.me/proxy?server=' + alive[int(x)] + '&port=1080')
+        links.append('tg://proxy?server=' + alive[int(x)] + '&port=1080')
 
     payload = '\n\n'.join(links)
     return payload
+
+
